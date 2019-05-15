@@ -8,5 +8,5 @@ module.exports = function(app, express) {
     app.use(express.json());
     app.use(express.urlencoded({ extended: false }));
     app.use(require('cookie-parser')());
-    app.use(express.static(path.join(__basedir, 'public')));
+    
 }

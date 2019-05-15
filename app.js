@@ -6,8 +6,6 @@ const ioConf = require("./bin/conf/io"),
 
 const app = express();
 
-module.exports = function(io) {
-
   /**
    * Configuration of the view engine
    * */
@@ -16,12 +14,10 @@ module.exports = function(io) {
   /**
    * Configuration of the Websockets
    * */
-  ioConf(app, io);
+  // ioConf(app, io);
 
   /**
    * Configuration of the web routes
    */
-  routeConf(app);
-
-  return app;
-}
+  routeConf(app, express);
+module.exports = app;

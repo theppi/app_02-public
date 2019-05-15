@@ -2,7 +2,18 @@
 <html>
   <head>
     <title>{{title}}</title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/css/style.css' />
+    <script src="/libs/socket/socket.io.dev.js"></script>
+    <script>
+      var socket = io();
+      socket.on("message", function(msg) {
+        console.log(msg);
+      })
+      function go() {
+        return socket.emit('message', {type: "test"});
+      }
+      
+    </script>
   </head>
   <body>
     {{{body}}}

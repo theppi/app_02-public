@@ -2,7 +2,12 @@ const indexRouter = require(path.join(__basedir,"routes","index")),
       usersRouter = require(path.join(__basedir,"routes","api")),
       createError = require('http-errors');
 
-module.exports = function(app) {
+module.exports = function(app, express) {
+
+    app.use(express.static(path.join(__basedir, 'public')));
+    
+    app.use("/libs/socket", express.static(path.join(__basedir, 'node_modules', 'socket.io-client', 'dist')));
+
     app.use('/', indexRouter);
     app.use('/api', usersRouter);
 
